@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf8ef">
+  <meta name="description" content="一款轻松上手的 2048 数字合并小游戏。">
+  <title>2048 — 数字合并小游戏</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="." aria-label="2048 首页">2048<span>数字合并</span></a>
+      <p class="top-note">轻轻滑动，合成更大的数字</p>
+    </header>
+
+    <section class="intro" aria-labelledby="game-title">
+      <div>
+        <p class="eyebrow">A LITTLE NUMBER GAME</p>
+        <h1 id="game-title">2048</h1>
+        <p class="subtitle">把相同的数字合在一起，试着合成 <strong>2048</strong>。</p>
+      </div>
+      <div class="score-group" aria-label="游戏分数">
+        <div class="score-card">
+          <span class="score-label">分数</span>
+          <span class="score-value" id="score">0</span>
+        </div>
+        <div class="score-card best-card">
+          <span class="score-label">最高分</span>
+          <span class="score-value" id="best-score">0</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <p class="tip"><span aria-hidden="true">✦</span> 键盘方向键 / WASD，或在棋盘上滑动</p>
+      <button class="new-game-button" id="new-game" type="button">
+        <span aria-hidden="true">↻</span> 新游戏
+      </button>
+    </div>
+
+    <section class="board-wrap" aria-label="2048 游戏区域">
+      <div class="board" id="board" role="grid" aria-label="2048 游戏棋盘" tabindex="0">
+        <div class="board-background" id="board-background" aria-hidden="true"></div>
+        <div class="tile-layer" id="tile-layer"></div>
+        <div class="game-overlay" id="game-overlay" hidden>
+          <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-message">
+            <p class="dialog-kicker">数字魔法</p>
+            <h2 id="dialog-title"></h2>
+            <p id="dialog-message"></p>
+            <div class="dialog-actions">
+              <button class="new-game-button continue-button" id="continue-game" type="button">继续游戏</button>
+              <button class="new-game-button" id="play-again" type="button">再来一局</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="sr-only" id="game-status" role="status" aria-live="polite"></p>
+
+    <footer class="footer">
+      <p><strong>怎么玩</strong>　每次移动，所有方块都会向同一方向滑动。两个相同数字碰到时会合并。</p>
+      <p>没有空格时仍可合并就继续；棋盘无法移动时，游戏结束。</p>
+    </footer>
+  </main>
+</body>
+</html>
